@@ -13,7 +13,7 @@ def _info():
 - Made by Jackson Baker in 2020 -
 A GUI Baced Painting Application written in Python using Tkinter.
 For more info go to https://github.com/ and search "PyPaint".
-(Just so you know, this program is in it's beta testing ''').pack()
+(Just so you know, this program is in it's beta testing)''').pack()
 def _forward():
     canvas.forward(10)
 def _back():
@@ -29,7 +29,7 @@ def _up():
 def _clear():
     canvas.reset()
 def _exit():
-    RUSURE = mbox.askquestion ('Exit Application','Are you sure you want to exit the application',icon = 'warning')
+    RUSURE = mbox.askquestion ('Exit Application','Are you sure you want to exit the application?',icon = 'warning')
     if RUSURE == 'yes':
        exit()
     else:
