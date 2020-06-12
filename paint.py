@@ -28,6 +28,13 @@ def _up():
     canvas.penup()
 def _clear():
     canvas.reset()
+def _exit():
+    RUSURE = mbox.askquestion ('Exit Application','Are you sure you want to exit the application',icon = 'warning')
+    if RUSURE == 'yes':
+       exit()
+    else:
+        while True:
+            break
 btn1 = Button(tk, text='Forward', command=_forward)
 btn2 = Button(tk, text='Backward', command=_back)
 btn3 = Button(tk, text='Left', command=_left)
@@ -36,6 +43,7 @@ btn5 = Button(tk, text='Pen On', command=_down)
 btn6 = Button(tk, text='Pen Off', command=_up)
 btn7 = Button(tk, text='Reset Canvas', command=_clear)
 btn8 = Button(tk, text='Program Info', command=_info)
+btn9 = Button(tk, text='Exit', command=_exit)
 def packall():
     btn1.pack()
     btn2.pack()
@@ -45,5 +53,6 @@ def packall():
     btn6.pack()
     btn7.pack()
     btn8.pack()
+    btn9.pack()
 packall()
 mbox.showinfo('PyPaint v'+version, 'Welcome to PyPaint v'+version+'!')
