@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox as mbox
-import turtle, time
-version = '1.0'
+import turtle, time, os
+version = '1.1'
 canvas = turtle.Pen()
 tk = Tk()
 def _info(): 
@@ -28,6 +28,25 @@ def _up():
     canvas.penup()
 def _clear():
     canvas.reset()
+def _color():
+    colorChanger = Toplevel(tk)
+    def red1():
+        canvas.color('red')
+        colorChanger.destroy()
+    def green1():
+        canvas.color('green')
+        colorChanger.destroy()
+    def blue1():
+        canvas.color('blue')
+        colorChanger.destroy()
+    def black1():
+        canvas.color('black')
+        colorChanger.destroy()
+    colorChanger.title("PyPaint Color Changer")
+    Button(colorChanger, text='Red', command=red1).pack()
+    Button(colorChanger, text='Green', command=green1).pack()
+    Button(colorChanger, text='Blue', command=blue1).pack()
+    Button(colorChanger, text='Black', command=black1).pack()
 def _exit():
     RUSURE = mbox.askquestion ('Exit Application','Are you sure you want to exit the application?',icon = 'warning')
     if RUSURE == 'yes':
@@ -41,9 +60,10 @@ btn3 = Button(tk, text='Left', command=_left)
 btn4 = Button(tk, text='Right', command=_right)
 btn5 = Button(tk, text='Pen On', command=_down)
 btn6 = Button(tk, text='Pen Off', command=_up)
-btn7 = Button(tk, text='Reset Canvas', command=_clear)
-btn8 = Button(tk, text='Program Info', command=_info)
-btn9 = Button(tk, text='Exit', command=_exit)
+btn7 = Button(tk, text='Change Color', command=_color)
+btn8 = Button(tk, text='Reset Canvas', command=_clear)
+btn9 = Button(tk, text='Program Info', command=_info)
+btn10 = Button(tk, text='Exit', command=_exit)
 def packall():
     btn1.pack()
     btn2.pack()
@@ -54,5 +74,6 @@ def packall():
     btn7.pack()
     btn8.pack()
     btn9.pack()
+    btn10.pack()
 packall()
 mbox.showinfo('PyPaint v'+version, 'Welcome to PyPaint v'+version+'!')
