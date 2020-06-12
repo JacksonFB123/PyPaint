@@ -1,4 +1,4 @@
 # PyPaint
 A GUI Based Painting Application. 
-- Update Notes -
-There will be color changing settings in v1.1
+## Future Updates
+- There will be color changing in version 1.1.
