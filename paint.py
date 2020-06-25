@@ -1,9 +1,10 @@
 from tkinter import *
 from tkinter import messagebox as mbox
 import turtle, time, os
-version = '1.1'
+version = '2.0'
 canvas = turtle.Pen()
 tk = Tk()
+tk.title('PyPaint Control Panel')
 def _info(): 
     newWindow = Toplevel(tk) 
     newWindow.title("PyPaint Info")  
@@ -12,8 +13,8 @@ def _info():
 - Version '''+version+''' -
 - Made by Jackson Baker in 2020 -
 A GUI Baced Painting Application written in Python using Tkinter.
-For more info go to https://github.com/ and search "PyPaint".
-(Just so you know, this program is in it's beta testing)''').pack()
+For more info go to "https://github.com/JacksonFB123/PyPaint".
+(And if you have problems you can go there for that as well)''').pack()
 def _forward():
     canvas.forward(10)
 def _back():
@@ -47,6 +48,15 @@ def _color():
     Button(colorChanger, text='Green', command=green1).pack()
     Button(colorChanger, text='Blue', command=blue1).pack()
     Button(colorChanger, text='Black', command=black1).pack()
+def refresh(event):
+    if event.keysym == 'Up':
+        _forward()
+    elif event.keysym == 'Down':
+        _back()
+    elif event.keysym == 'Left':
+        _left()
+    else:
+        _right()
 def _exit():
     RUSURE = mbox.askquestion ('Exit Application','Are you sure you want to exit the application?',icon = 'warning')
     if RUSURE == 'yes':
@@ -75,5 +85,9 @@ def packall():
     btn8.pack()
     btn9.pack()
     btn10.pack()
+    tk.bind_all('<KeyPress-Up>', refresh)
+    tk.bind_all('<KeyPress-Down>', refresh)
+    tk.bind_all('<KeyPress-Left>', refresh)
+    tk.bind_all('<KeyPress-Right>', refresh)
 packall()
-mbox.showinfo('PyPaint v'+version, 'Welcome to PyPaint v'+version+'!')
+mbox.showinfo('PyPaint', 'Welcome to PyPaint v'+version+'!')
