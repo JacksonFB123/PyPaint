@@ -1,7 +1,7 @@
 # PyPaint
 A GUI based painting application written in Python.
 ## Added Updates (live)
-- Updated to version 1.1.
-- Added color changer.
+- Updated to version 2.0.
+- Added keyboard support.
 ## Future Updates
-- Updating color changer in 1.2.
+- Updating color changer in 2.1.
