@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox as mbox
 import turtle, time, os
-version = '2.0'
+version = '2.5'
 canvas = turtle.Pen()
 tk = Tk()
 tk.title('PyPaint Control Panel')
@@ -58,12 +58,21 @@ def refresh(event):
     else:
         _right()
 def _exit():
-    RUSURE = mbox.askquestion ('Exit Application','Are you sure you want to exit the application?',icon = 'warning')
+    RUSURE = mbox.askquestion ('PyPaint','Are you sure you want to exit the application?',icon = 'warning')
     if RUSURE == 'yes':
        exit()
     else:
         while True:
             break
+def _keys():
+    newWindow = Toplevel(tk)
+    newWindow.title("Keypress Settings")
+    newWindow.geometry("200x100")
+    Label(newWindow, '''----KEYPRESS SETTINGS----
+Up Arrow = Go Forward - Back Arrow = Go Backward
+Left and Right Arrows = Turn Left And Turn Right
+Q = Color Changer''').pack()
+txt = Label(tk, "PyPaint")
 btn1 = Button(tk, text='Forward', command=_forward)
 btn2 = Button(tk, text='Backward', command=_back)
 btn3 = Button(tk, text='Left', command=_left)
@@ -73,8 +82,10 @@ btn6 = Button(tk, text='Pen Off', command=_up)
 btn7 = Button(tk, text='Change Color', command=_color)
 btn8 = Button(tk, text='Reset Canvas', command=_clear)
 btn9 = Button(tk, text='Program Info', command=_info)
-btn10 = Button(tk, text='Exit', command=_exit)
+btn10 = Button(tk, text='Keypress Settings', command=_keys)
+btn11 = Button(tk, text='Exit', command=_exit)
 def packall():
+    txt.pack()
     btn1.pack()
     btn2.pack()
     btn3.pack()
@@ -85,9 +96,11 @@ def packall():
     btn8.pack()
     btn9.pack()
     btn10.pack()
+    btn11.pack()
     tk.bind_all('<KeyPress-Up>', refresh)
     tk.bind_all('<KeyPress-Down>', refresh)
     tk.bind_all('<KeyPress-Left>', refresh)
     tk.bind_all('<KeyPress-Right>', refresh)
+    tk.bind_all('<q>', _color)
 packall()
 mbox.showinfo('PyPaint', 'Welcome to PyPaint v'+version+'!')
