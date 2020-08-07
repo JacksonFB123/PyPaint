@@ -68,11 +68,11 @@ def _keys():
     newWindow = Toplevel(tk)
     newWindow.title("Keypress Settings")
     newWindow.geometry("200x100")
-    Label(newWindow, '''----KEYPRESS SETTINGS----
+    Label(newWindow, text='''----KEYPRESS SETTINGS----
 Up Arrow = Go Forward - Back Arrow = Go Backward
 Left and Right Arrows = Turn Left And Turn Right
 Q = Color Changer''').pack()
-txt = Label(tk, "PyPaint")
+txt = Label(tk, text="PyPaint")
 btn1 = Button(tk, text='Forward', command=_forward)
 btn2 = Button(tk, text='Backward', command=_back)
 btn3 = Button(tk, text='Left', command=_left)
