@@ -6,5 +6,10 @@ A GUI based painting application written in Python.
 - Updated "Keypress Settings"
 ## Future Updates
 - Updating color changer in 3.0.
-# NOTICE
-## This program only works on Python 3.7 and higher. Please don't run this program in Python 2.
+
+
+
+
+
+## NOTICE
+This program only works on Python 3.7 and higher. Please don't run this program in Python 2.
