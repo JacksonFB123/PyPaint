@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox as mbox
 import turtle, time, os
-version = '2.5'
+version = '2.9'
 canvas = turtle.Pen()
 tk = Tk()
 tk.title('PyPaint Control Panel')
@@ -15,6 +15,9 @@ def _info():
 A GUI Baced Painting Application written in Python using Tkinter.
 For more info go to "https://github.com/JacksonFB123/PyPaint".
 (And if you have problems you can go there for that as well)''').pack()
+    def close():
+        newWindow.destroy()
+    Button(newWindow, text='Close Window', command=close).pack()
 def _forward():
     canvas.forward(10)
 def _back():
@@ -67,11 +70,13 @@ def _exit():
 def _keys():
     newWindow = Toplevel(tk)
     newWindow.title("Keypress Settings")
-    newWindow.geometry("200x100")
     Label(newWindow, text='''----KEYPRESS SETTINGS----
 Up Arrow = Go Forward - Back Arrow = Go Backward
 Left and Right Arrows = Turn Left And Turn Right
 Q = Color Changer''').pack()
+    def close():
+        newWindow.destroy()
+    Button(newWindow, text='Close Window', command=close).pack()
 txt = Label(tk, text="PyPaint")
 btn1 = Button(tk, text='Forward', command=_forward)
 btn2 = Button(tk, text='Backward', command=_back)
